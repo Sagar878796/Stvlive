@@ -2,12 +2,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>STV Live Player</title>
+<title>STV DRM Player</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.compiled.js"></script>
 
 <style>
-
 body{
 margin:0;
 background:black;
@@ -36,7 +35,6 @@ cursor:pointer;
 .channel:hover{
 background:#222;
 }
-
 </style>
 
 </head>
@@ -44,11 +42,11 @@ background:#222;
 
 <video id="video" controls autoplay></video>
 
-<div id="channels">Loading channels...</div>
+<div id="channels">Loading...</div>
 
 <script>
 
-const playlistUrl =
+const PLAYLIST =
 "https://sagar878796.github.io/Stvlive/playlist.m3u";
 
 const video =
@@ -71,15 +69,36 @@ request.headers['Referer'] =
 request.headers['Origin'] =
 "https://www.jiotv.com";
 
+request.headers['Accept'] = "*/*";
+
 request.allowCrossSiteCredentials = true;
 
 });
 
 
+// HEX → BASE64 converter
+function hexToBase64(hex){
+
+const bytes =
+new Uint8Array(
+hex.match(/.{1,2}/g)
+.map(b=>parseInt(b,16))
+);
+
+return btoa(
+String.fromCharCode(...bytes)
+)
+.replace(/\+/g,'-')
+.replace(/\//g,'_')
+.replace(/=+$/,'');
+
+}
+
+
 async function loadPlaylist(){
 
 const res =
-await fetch(playlistUrl);
+await fetch(PLAYLIST);
 
 const text =
 await res.text();
@@ -89,20 +108,35 @@ text.split("\n");
 
 let channels = [];
 
+let key = null;
+
 for(let i=0;i<lines.length;i++){
+
+if(lines[i].includes("license_key")){
+
+key =
+lines[i]
+.split("=")[1]
+.trim();
+
+}
 
 if(lines[i].startsWith("#EXTINF")){
 
 const name =
-lines[i].split(",")[1];
+lines[i]
+.split(",")[1];
 
 const url =
 lines[i+1];
 
 channels.push({
 name,
-url
+url,
+key
 });
+
+key = null;
 
 }
 
@@ -118,20 +152,18 @@ function showChannels(channels){
 const div =
 document.getElementById("channels");
 
-div.innerHTML = "";
+div.innerHTML="";
 
 channels.forEach(ch=>{
 
 const el =
 document.createElement("div");
 
-el.className =
-"channel";
+el.className="channel";
 
-el.innerText =
-ch.name;
+el.innerText=ch.name;
 
-el.onclick = ()=> playChannel(ch.url);
+el.onclick=()=>playChannel(ch);
 
 div.appendChild(el);
 
@@ -140,17 +172,48 @@ div.appendChild(el);
 }
 
 
-async function playChannel(url){
+async function playChannel(ch){
 
 try{
 
-await player.load(url);
+if(ch.key){
 
-console.log("Playing:",url);
+const parts =
+ch.key.split(":");
+
+const kid =
+hexToBase64(parts[0]);
+
+const key =
+hexToBase64(parts[1]);
+
+await player.configure({
+
+drm:{
+clearKeys:{
+[kid]: key
+}
+}
+
+});
+
+}else{
+
+await player.configure({
+drm:{}
+});
+
+}
+
+await player.load(ch.url);
+
+console.log("Playing:",ch.name);
 
 }catch(e){
 
-alert("Play error: "+e.message);
+alert("Play failed: "+e.message);
+
+console.log(e);
 
 }
 
