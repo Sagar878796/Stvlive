@@ -2,39 +2,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>STV DRM Player</title>
+<title>STV Live</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.compiled.js"></script>
 
 <style>
-body{
-margin:0;
-background:black;
-color:white;
-font-family:Arial;
-}
-
-#video{
-width:100%;
-height:60vh;
-background:black;
-}
-
-#channels{
-height:40vh;
-overflow-y:auto;
-background:#111;
-}
-
-.channel{
-padding:12px;
-border-bottom:1px solid #333;
-cursor:pointer;
-}
-
-.channel:hover{
-background:#222;
-}
+body{margin:0;background:black;color:white;font-family:Arial}
+video{width:100%;height:60vh;background:black}
+#channels{height:40vh;overflow:auto;background:#111}
+.channel{padding:12px;border-bottom:1px solid #333;cursor:pointer}
+.channel:hover{background:#222}
 </style>
 
 </head>
@@ -56,43 +33,25 @@ const player =
 new shaka.Player(video);
 
 
-// HEADERS FIX
+// dynamic headers
+let currentHeaders = {};
+
 player.getNetworkingEngine().registerRequestFilter(
 (type, request)=>{
 
 request.headers['User-Agent'] =
-"Mozilla/5.0 (Linux; Android 13) Chrome/120 Mobile Safari/537.36";
+currentHeaders['User-Agent'] ||
+"Mozilla/5.0 (Linux; Android 10) Chrome/120 Mobile Safari/537.36";
 
+if(currentHeaders['Referer'])
 request.headers['Referer'] =
-"https://www.jiotv.com/";
+currentHeaders['Referer'];
 
+if(currentHeaders['Origin'])
 request.headers['Origin'] =
-"https://www.jiotv.com";
-
-request.headers['Accept'] = "*/*";
-
-request.allowCrossSiteCredentials = true;
+currentHeaders['Origin'];
 
 });
-
-
-// HEX → BASE64 converter
-function hexToBase64(hex){
-
-const bytes =
-new Uint8Array(
-hex.match(/.{1,2}/g)
-.map(b=>parseInt(b,16))
-);
-
-return btoa(
-String.fromCharCode(...bytes)
-)
-.replace(/\+/g,'-')
-.replace(/\//g,'_')
-.replace(/=+$/,'');
-
-}
 
 
 async function loadPlaylist(){
@@ -108,35 +67,45 @@ text.split("\n");
 
 let channels = [];
 
-let key = null;
+let userAgent = null;
 
 for(let i=0;i<lines.length;i++){
 
-if(lines[i].includes("license_key")){
+if(lines[i].includes("http-user-agent=")){
 
-key =
-lines[i]
-.split("=")[1]
-.trim();
+userAgent =
+lines[i].split("=")[1];
 
 }
 
 if(lines[i].startsWith("#EXTINF")){
 
 const name =
-lines[i]
-.split(",")[1];
+lines[i].split(",")[1];
 
-const url =
+let url =
 lines[i+1];
+
+let referer = null;
+
+if(url.includes("|Referer=")){
+
+referer =
+url.split("|Referer=")[1];
+
+url =
+url.split("|Referer=")[0];
+
+}
 
 channels.push({
 name,
 url,
-key
+userAgent,
+referer
 });
 
-key = null;
+userAgent = null;
 
 }
 
@@ -174,36 +143,23 @@ div.appendChild(el);
 
 async function playChannel(ch){
 
+currentHeaders = {};
+
+if(ch.userAgent)
+currentHeaders['User-Agent'] =
+ch.userAgent;
+
+if(ch.referer){
+
+currentHeaders['Referer'] =
+ch.referer;
+
+currentHeaders['Origin'] =
+new URL(ch.referer).origin;
+
+}
+
 try{
-
-if(ch.key){
-
-const parts =
-ch.key.split(":");
-
-const kid =
-hexToBase64(parts[0]);
-
-const key =
-hexToBase64(parts[1]);
-
-await player.configure({
-
-drm:{
-clearKeys:{
-[kid]: key
-}
-}
-
-});
-
-}else{
-
-await player.configure({
-drm:{}
-});
-
-}
 
 await player.load(ch.url);
 
@@ -211,9 +167,7 @@ console.log("Playing:",ch.name);
 
 }catch(e){
 
-alert("Play failed: "+e.message);
-
-console.log(e);
+alert("Error: "+e.message);
 
 }
 
