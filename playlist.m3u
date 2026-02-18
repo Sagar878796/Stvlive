@@ -9,7 +9,7 @@
 #KODIPROP:inputstream.adaptive.manifest_type=dash
 #KODIPROP:inputstream.adaptive.license_key=https://mix.drmlive.net/mix/allowipmpd_key.php?id=chlajabsdk
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/d3Yf3PHX/DRMLIVE-Aggressive-Logo.png" group-title="1-Playlist-Activation",Activate Playlist
-https://mix.drmlive.net/mix/actchaljabsdk.mpd?token=YWJTTzZKeWI2amJwZ3FJY0hHb1RNKzVsbjhtNVlGWmNCVVhHVHpaUjJnK2hTbXBWVmlzRU93aXpDZXprTDhrVlJTaE5MelhVTWx1ZCs5VlAya2xpZjFjS1JXRU1GMzBjSmZidk5iZ0ZjRmdzNlV4Z01sck5nbnE4dERyWnNTY0I=
+https://mix.drmlive.net/mix/actchaljabsdk.mpd?token=YWJTTzZKeWI2amJwZ3FJY0hHb1RNKzVsbjhtNVlGWmNCVVhHVHpaUjJnK2hTbXBWVmlzRU93aXpDZXprTDhrVlQ0RnhkZU8wSXpDZ2pnRXJFdVNMUmV4dHlzaldZOGpPNnF4NkErRnludXRXNlYrcHVhV1BhTkdWUzZ4cDQ0Q0w=
 
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://la.drmlive.net/tp/sling_ck?id=22
@@ -3271,6 +3271,8 @@ https://mix.drmlive.net/mix/playboxtv.m3u8?id=560668015
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=560893170
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/417429835.jpeg" group-title="News",News Only
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=417429835
+#EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/417850726.jpeg" group-title="News",Baaz TV
+https://mix.drmlive.net/mix/playboxtv.m3u8?id=417850726
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/087310978.jpeg" group-title="News",Samay Kolkata
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=087310978
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/088240922.jpeg" group-title="News",24 Hours TV
@@ -3823,8 +3825,6 @@ https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-1265
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-453
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/pishow-278.jpg" group-title="Religious & Devotional",SUBHAVARTHA TV
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-278
-#EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/798160422.jpeg" group-title="Religious & Devotional",Fateh TV
-https://mix.drmlive.net/mix/playboxtv.m3u8?id=798160422
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/254483516.jpeg" group-title="Religious & Devotional",Valam TV
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=254483516
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/700271194.jpeg" group-title="Religious & Devotional",NTV Bhakthi
