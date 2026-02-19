@@ -9,7 +9,7 @@
 #KODIPROP:inputstream.adaptive.manifest_type=dash
 #KODIPROP:inputstream.adaptive.license_key=https://mix.drmlive.net/mix/allowipmpd_key.php?id=chlajabsdk
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/d3Yf3PHX/DRMLIVE-Aggressive-Logo.png" group-title="1-Playlist-Activation",Activate Playlist
-https://mix.drmlive.net/mix/actchaljabsdk.mpd?token=YWJTTzZKeWI2amJwZ3FJY0hHb1RNKzVsbjhtNVlGWmNCVVhHVHpaUjJnK2hTbXBWVmlzRU93aXpDZXprTDhrVk8veUJmRE5hMUdoWlRIM2JqN1N0NGN6dkR0V2tDdU80V0ZCS2RhZE5uUStPK3R2YUkvOEpzWUZtNXc1OFhRM2M=
+https://mix.drmlive.net/mix/actchaljabsdk.mpd?token=YWJTTzZKeWI2amJwZ3FJY0hHb1RNKzVsbjhtNVlGWmNCVVhHVHpaUjJnK2hTbXBWVmlzRU93aXpDZXprTDhrVnNwY1dtbGhUSXNlMjBGUFFUQlM3VGhhbTVaemVaUnRCblp0RlF1RDh3MStYNXpQbkxqUmE3bHNTMmlRM0o4MXU=
 
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://la.drmlive.net/tp/sling_ck?id=22
@@ -3075,8 +3075,6 @@ https://mix.drmlive.net/mix/playboxtv.m3u8?id=349729053
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=349589424
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/695226323.jpeg" group-title="News",Vande Bharat News
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=695226323
-#EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/pishow-1139.jpg" group-title="News",BHARAT EXPRESS
-https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-1139
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/pishow-1053.png" group-title="News",REPUBLIC BHARATH
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-1053
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/163662295.jpg" group-title="News",Sacchi Report
