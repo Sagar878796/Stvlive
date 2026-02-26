@@ -9,7 +9,7 @@
 #KODIPROP:inputstream.adaptive.manifest_type=dash
 #KODIPROP:inputstream.adaptive.license_key=https://mix.drmlive.net/mix/allowipmpd_key.php?id=chlajabsdk
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/d3Yf3PHX/DRMLIVE-Aggressive-Logo.png" group-title="1-Playlist-Activation",Activate Playlist
-https://mix.drmlive.net/mix/actchaljabsdk.mpd?token=YWJTTzZKeWI2amJwZ3FJY0hHb1RNKzVsbjhtNVlGWmNCVVhHVHpaUjJnK2hTbXBWVmlzRU93aXpDZXprTDhrVlh2UTFzbndoRHMwYmF5R0FWTVV3c3BSRE5vQlBHVU9vYk1NMDVvdHMrK0FTTm16aUpMeEJvRTZzZ0x2RVJNcEw=
+https://mix.drmlive.net/mix/actchaljabsdk.mpd?token=YWJTTzZKeWI2amJwZ3FJY0hHb1RNKzVsbjhtNVlGWmNCVVhHVHpaUjJnK2hTbXBWVmlzRU93aXpDZXprTDhrVlRPTEE4UzUvUm9XdTZ3UzFJYXlpaEM1TlZGRzBLbFlCMFRUMXdPakxGZjdrTG5ySTZaREtEb1FpYURyUVJKYUo=
 
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://la.drmlive.net/tp/sling_ck?id=22
@@ -3059,6 +3059,10 @@ https://mix.drmlive.net/mix/playboxtv.m3u8?id=021185003
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=821172381
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/pishow-1629.png" group-title="News",NEWS MALAYALAM 24x7
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-1629
+#EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/398342045.jpeg" group-title="News",DY365
+https://mix.drmlive.net/mix/playboxtv.m3u8?id=398342045
+#EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/pishow-269.png" group-title="News",INDIA AHEAD
+https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-269
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/738238597.jpeg" group-title="News",Tara TV
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=738238597
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/738060892.jpeg" group-title="News",Tribe Tv
@@ -3109,8 +3113,6 @@ https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-429
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-409
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/pishow-407.png" group-title="News",ANDHRA JYOTI
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-407
-#EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/pishow-403.jpg" group-title="News",STUDIO N NEWS
-https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-403
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/pishow-401.png" group-title="News",MAHAA NEWS
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-401
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/pishow-391.png" group-title="News",10 TV
@@ -3689,6 +3691,8 @@ https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-1265
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-453
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/pishow-278.jpg" group-title="Religious & Devotional",SUBHAVARTHA TV
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=pishow-278
+#EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/798160422.jpeg" group-title="Religious & Devotional",Fateh TV
+https://mix.drmlive.net/mix/playboxtv.m3u8?id=798160422
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/254483516.jpeg" group-title="Religious & Devotional",Valam TV
 https://mix.drmlive.net/mix/playboxtv.m3u8?id=254483516
 #EXTINF:-1 tvg-logo="https://s3.ap-south-1.amazonaws.com/media.playboxtv.in/content/liveTv/700271194.jpeg" group-title="Religious & Devotional",NTV Bhakthi
